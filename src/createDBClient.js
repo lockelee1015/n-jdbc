@@ -6,7 +6,7 @@ var DBClient = require('./DBClient.js')
 /**
  * 根据host,port和dbname来建立连接
  */
-function createDBClient(host, port, dbname) {
+function createDBClient(host, port) {
     return new Promise(function (resolve, reject) {
         // 建立socket客户端
         var client = new net.Socket()
