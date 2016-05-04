@@ -1,0 +1,14 @@
+{
+  "name": "n-jdbc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lockelee",
+  "license": "ISC",
+  "dependencies": {
+    "node-uuid": "^1.4.7"
+  }
+}
