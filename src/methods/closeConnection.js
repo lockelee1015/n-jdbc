@@ -1,6 +1,6 @@
 module.exports = function () {
     var dbClient = this.dbClient
-    var connId = this.connId
+    var connectionId = this.connectionId
     var callbackStore = dbClient.callbackStore
     var client = dbClient.client
     var that = this
@@ -8,7 +8,7 @@ module.exports = function () {
         var id = callbackStore.addCallback(function (result) {
             if (result.status === '-1') {
                 if (!!reject) {
-                    reject(tips)
+                    reject(result.tips)
                 } else {
                     throw new Error(`failed to closeConnection`)
                 }
@@ -17,6 +17,6 @@ module.exports = function () {
             }
         })
 
-        client.write(`{id:'${id}',connId: '${connId}',method:'closeConnection'}`)
+        client.write(`{id:'${id}',connectionId: '${connectionId}',method:'closeConnection'}`)
     })
 }

@@ -1,15 +1,11 @@
-var methods = require('./methods')
-
-function connection(dbClient, connectId) {
+function connection(dbClient, connectionId) {
     this.dbClient = dbClient
-    this.connectId = connectId
+    this.connectionId = connectionId
 }
-
-connection.prototype.executeQuery = methods.executeQuery
-connection.prototype.executeUpdate = methods.executeUpdate
-connection.prototype.setAutoCommit = methods.setAutoCommit
-connection.prototype.commit = methods.commit
-connection.prototype.rollback = methods.rollback
-connection.prototype.close = methods.closeConnection
-
+connection.prototype.executeQuery = require('./methods/executeQuery.js')
+connection.prototype.executeUpdate = require('./methods/executeUpdate.js')
+connection.prototype.setAutoCommit = require('./methods/setAutoCommit.js')
+connection.prototype.commit = require('./methods/commit.js')
+connection.prototype.rollback = require('./methods/rollback.js')
+connection.prototype.close = require('./methods/closeConnection.js')
 module.exports = connection

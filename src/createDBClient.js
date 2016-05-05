@@ -19,7 +19,7 @@ function createDBClient(host, port) {
             if (!!err) {
                 reject(err)
             } else {
-                // console.log('CONNECTED TO: ' + host + ':' + port)
+                console.log('CONNECTED TO: ' + host + ':' + port)
                 //连接上之后注册回调函数
                 client.on('data', function (data) {
                     var resultJsonString = data.toString()
