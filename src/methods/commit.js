@@ -1,6 +1,8 @@
 module.exports = function () {
-    var client = this.client
-    var callbackStore = this.callbackStore
+    var dbClient = this.dbClient
+    var connectionId = this.connectionId
+    var callbackStore = dbClient.callbackStore
+    var client = dbClient.client
     var that = this
     return new Promise(function (resolve, reject) {
         var id = callbackStore.addCallback(function (result) {
@@ -14,7 +16,7 @@ module.exports = function () {
                 resolve()
             }
         })
-        var param = { id: id, method: 'commit' }
+        var param = { id: id, connectionId: connectionId, method: 'commit' }
         client.write(JSON.stringify(param))
     })
 }

@@ -1,6 +1,8 @@
 module.exports = function () {
-    var client = this.client
-    var callbackStore = this.callbackStore
+    var dbClient = this.dbClient
+    var connId = this.connId
+    var callbackStore = dbClient.callbackStore
+    var client = dbClient.client
     var that = this
     return new Promise(function (resolve, reject) {
         var id = callbackStore.addCallback(function (result) {
@@ -8,13 +10,13 @@ module.exports = function () {
                 if (!!reject) {
                     reject(tips)
                 } else {
-                    throw new Error(`failed to start a transaction`)
+                    throw new Error(`failed to closeConnection`)
                 }
             } else {
                 resolve()
             }
         })
 
-        client.write(`{id:${id},method:'closeConnection'}`)
+        client.write(`{id:'${id}',connId: '${connId}',method:'closeConnection'}`)
     })
 }

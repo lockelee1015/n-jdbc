@@ -5,8 +5,6 @@ var DBClient = function (client, callbackStore) {
     this.callbackStore = callbackStore
 }
 
-for (var method in methods) {
-    DBClient.prototype[method] = methods[method]
-}
+DBClient.prototype.getConnection = methods.getConnection
 
 module.exports = DBClient

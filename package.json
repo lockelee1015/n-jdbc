@@ -3,11 +3,13 @@
   "version": "0.0.1",
   "description": "a easy dbClient for oracle database proxy by java",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "author": "lockelee",
   "license": "ISC",
   "dependencies": {
     "node-uuid": "^1.4.7"
+  },
+  "devDependencies": {
+    "koa": "^1.2.0"
   }
 }

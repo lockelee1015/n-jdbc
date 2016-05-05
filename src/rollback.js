@@ -1,8 +1,6 @@
-module.exports = function (flag) {
-    var dbClient = this.dbClient
-    var connectionId = this.connectionId
-    var callbackStore = dbClient.callbackStore
-    var client = dbClient.client
+module.exports = function () {
+    var client = this.client
+    var callbackStore = this.callbackStore
     var that = this
     return new Promise(function (resolve, reject) {
         var id = callbackStore.addCallback(function (result) {
@@ -16,7 +14,7 @@ module.exports = function (flag) {
                 resolve()
             }
         })
-        var param = { id: id, connectionId: connectionId, method: 'setAutoCommit', flag: flag }
+        var param = { id: id, method: 'rollback' }
         client.write(JSON.stringify(param))
     })
 }
