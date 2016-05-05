@@ -8,6 +8,7 @@ module.exports = function (sql) {
                 if (!!reject) {
                     reject(tips)
                 } else {
+                    that.rollback()
                     throw new Error(`failed update ${sql}`)
                 }
             } else {

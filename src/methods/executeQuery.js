@@ -11,7 +11,7 @@ module.exports = function (sql) {
                     throw new Error(`failed query ${sql}`)
                 }
             } else {
-                resolve()
+                resolve(result.result)
             }
         })
         var param = { id: id, method: 'executeQuery', sql: sql }
