@@ -14,6 +14,6 @@ npm install --save n-jdbc
 ```(javascript)
 var createDBClient = require('n-jdbc').createDBClient
 var dbClient = createDBClient('localhost',8080)
-dbClient.getConnection('DBNAME')
-dbClient.closeConnection()
+var connection = dbClient.getConnection('50HIP')
+connection.executeUpdate('INSERT INTO TEST VALUES ("123")')
 ```

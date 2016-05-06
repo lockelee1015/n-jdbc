@@ -1,13 +1,13 @@
 var createDBClient = require('../src/createDBClient.js')
 var connections = []
 var client
-createDBClient('192.168.101.36', 1522)
+createDBClient('192.168.1.82', 1522)
     .then(function (dbClient) {
         client = dbClient
         return dbClient.getConnection('50HIP')
     })
     .then(function (conn) {
-        return conn.executeQuery('select * from test')
+        return conn.executeQuery(`select * from TEST`)
     }).then(function (result) {
         console.log(result)
         return client.getConnection('50HIP')

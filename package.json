@@ -1,6 +1,6 @@
 {
   "name": "n-jdbc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a easy dbClient for oracle database proxy by java",
   "main": "index.js",
   "scripts": {},
